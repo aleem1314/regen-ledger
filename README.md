@@ -1,7 +1,7 @@
 # Regen Ledger
 ![banner](docs/regen-network-image.jpg)
 
-[![pipeline status](https://gitlab.com/regen-network/regen-ledger/badges/master/pipeline.svg)](https://gitlab.com/regen-network/regen-ledger/commits/master)
+[![pipeline status](https://gitlab.com/regen-network/regen-ledger/workflows/Test/badge.svg)](https://gitlab.com/regen-network/regen-ledger/commits/master)
 ![GitHub issues](https://img.shields.io/github/issues/regen-network/regen-ledger.svg)
 [![GitHub issues by-label](https://img.shields.io/github/issues/regen-network/regen-ledger/good%20first%20issue.svg)](https://github.com/regen-network/regen-ledger/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)
 [![codecov](https://codecov.io/gh/regen-network/regen-ledger/branch/master/graph/badge.svg)](https://codecov.io/gh/regen-network/regen-ledger)
