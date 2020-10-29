@@ -25,7 +25,7 @@ jobs:
         version: v1.28
         args: --timeout 10m
         github-token: ${{ secrets.github_token }}
-    if: env.GIT_DIFF
+      if: env.GIT_DIFF
   test:
     name: Unit tests
     runs-on: ubuntu-latest
