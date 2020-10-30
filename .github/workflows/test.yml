@@ -37,5 +37,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: run test cover
-        run: make test-cover
-        run: bash <(curl -s https://codecov.io/bash) -f coverage.txt -t $CODECOV_TOKEN
+        run: |
+        make test-cover
+        bash <(curl -s https://codecov.io/bash) -f coverage.txt -t $CODECOV_TOKEN
