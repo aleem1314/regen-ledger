@@ -13,6 +13,12 @@ jobs:
       - name: Display go version
         run: go version
       - run: make build
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: dist-without-markdown
+          path: |
+            build
   unittest:
     name: Unit tests
     runs-on: ubuntu-latest
