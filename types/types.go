@@ -2,9 +2,9 @@ package types
 
 import (
 	"fmt"
-	"github.com/regen-network/regen-ledger/util"
-	"github.com/tendermint/tendermint/libs/bech32"
 	"net/url"
+
+	"github.com/regen-network/regen-ledger/util"
 )
 
 type HasURI interface {
@@ -28,7 +28,11 @@ const (
 
 // String returns the string URI representation mof the GeoAddress
 func (addr GeoAddress) String() string {
-	return util.MustEncodeBech32(Bech32GeoAddressPrefix, addr)
+	encoded, err := util.ConvertAndEncode(Bech32GeoAddressPrefix, addr)
+	if err != nil {
+		panic(err)
+	}
+	return encoded
 }
 
 // URI returns the URI representation mof the GeoAddress
@@ -43,7 +47,11 @@ func (addr GeoAddress) URI() *url.URL {
 func (addr DataAddress) String() string {
 	switch addr[0] {
 	case DataAddressPrefixOnChainGraph:
-		return util.MustEncodeBech32(Bech32DataAddressPrefix, addr[1:])
+		encoded, err := util.ConvertAndEncode(Bech32GeoAddressPrefix, addr[1:])
+		if err != nil {
+			panic(err)
+		}
+		return encoded
 	default:
 		panic(fmt.Errorf("unknown address prefix %d", addr[0]))
 
@@ -71,7 +79,7 @@ func MustDecodeBech32DataAddress(url string) DataAddress {
 }
 
 func DecodeBech32DataAddress(url string) (DataAddress, error) {
-	hrp, bz, err := bech32.DecodeAndConvert(url)
+	hrp, bz, err := util.DecodeAndConvert(url) /* bech32.DecodeAndConvert(url)  */
 	if err != nil {
 		return nil, err
 	}
